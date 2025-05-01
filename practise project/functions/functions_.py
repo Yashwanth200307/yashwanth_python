@@ -36,6 +36,7 @@ b = 5
 c= a+b
 print(f"Sum of {a} and {b}:",c)
 '''
+'''
 
 def welcome():
     print("hello world! hai")
@@ -44,4 +45,43 @@ def welcome():
 welcome()
 welcome()
 
+'''
+'''
+#multiplication
+def multiplication(num,muliplier):
+    result_mul=num*muliplier
+    print(result_mul)
+    
+multiplication(d, 5)
 
+'''
+'''
+#division 
+def division_integer_division(dividend, divisor):
+    div_quotient = dividend / divisor
+    int_div_quotient = dividend // divisor
+    return div_quotient, int_div_quotient
+
+print(division_integer_division(7, 2))
+'''
+'''
+#division 2
+def division_integer_division(dividend, divisor):
+    div_quotient = dividend / divisor
+    int_div_quotient = dividend // divisor
+    return div_quotient, int_div_quotient
+div_output1, div_output2 = division_integer_division(7,2)
+print(div_output1)
+print(div_output2) 
+
+'''
+f, g=5,6
+print(f)
+print(g)
+
+def add_mul(a, b):
+    add_op=addition(a, b)
+    mul_op=multiplication(a, b)
+    return add_op , mul_op
+
+print(add_mul(5,3))

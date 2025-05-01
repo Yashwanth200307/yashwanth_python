@@ -4,7 +4,7 @@ Created on 29-Apr-2025
 @author: User1
 '''
 '''
-#if a number is even or odd
+#if a number is even or odd  1 
 
 num = int(input("Please enter a number: "))
 
@@ -17,31 +17,31 @@ print(":)")
 
 '''
 '''
-#greater than or not 
+#largest of two   2
 a = 5
 b = 8
 
 if a > b:
-    print(f"{a} is greater than {b}")
+    print(f"{a} is larger than {b}")
 else:
-    print(f"{b} is greater than {a}")
+    print(f"{b} is larger than {a}")
 '''    
     
-'''
-#voter age 
+
+#voter age 3
 age = int(input("Enter your age: "))
 
 if age >= 18:
     print("You are eligible to vote!")
 else:
-    print("Sorry, you are not eligible to vote yet.")
+    print("Sorry, you are not eligible to vote yet 😒.")
+
 '''
+#largest of three   4
 
-#largest of three
-
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-c = int(input("Enter third number: "))
+a = int(input("Enter first Number: "))
+b = int(input("Enter second Number: "))
+c = int(input("Enter third Number: "))
 
 if a >= b and a >= c:
     largest = a
@@ -50,4 +50,14 @@ elif b >= a and b >= c:
 else:
     largest = c
 
-print("The largest number is:", largest)
+print("The largest number is 🫡:", largest)
+'''
+'''
+# finding leap year  5
+year = int(input("Enter a year: "))
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} is a leap year 👍")
+else:
+    print(f"{year} is not a leap year 👎.")
+'''

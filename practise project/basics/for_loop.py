@@ -42,3 +42,11 @@ for j in range(5 , 0, -1):
     for i in range(j):
         print("*" , end=" ")
     print()
+
+# left half side pyramid
+for j in range(5):
+    for k in range(5-j):
+        print(" " , end=" ")
+    for i in range(j):
+        print("*" , end=" ")
+    print()
