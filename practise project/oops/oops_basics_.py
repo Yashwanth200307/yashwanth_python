@@ -19,3 +19,12 @@ obj1.walk()
 #print(type(obj1)) #<class '__main__.Humanbeings'>
 #types give wich type if variable that belongs to 
 
+class Humanbeings():
+    def __init__(self, name):
+        pass
+    def walk(self):
+        print("iam walking")
+        print("i am eating")
+        
+obj1=Humanbeings(Yashu)
+obj1.walk()
