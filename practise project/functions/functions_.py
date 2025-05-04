@@ -8,6 +8,7 @@ function is a  block of reuseable code to perform a specific task
 
 types of code 
 1. predefined > readily available in python
+   -builtin functions 
 2. userdefined>  created by programer 
 
 why we need function
@@ -75,13 +76,18 @@ print(div_output1)
 print(div_output2) 
 
 '''
-f, g=5,6
-print(f)
-print(g)
 
-def add_mul(a, b):
-    add_op=addition(a, b)
-    mul_op=multiplication(a, b)
-    return add_op , mul_op
+# f, g=5,6
+# print(f)
+# print(g)
 
-print(add_mul(5,3))
+#Function with parameters
+def addition(a, b):
+    c=a+b 
+    # print(f"Addition of {a} and {b}:", c)
+    return c
+    
+# d=addition(10, 20)
+# print(d)
+
+# print(addition(8, 10))

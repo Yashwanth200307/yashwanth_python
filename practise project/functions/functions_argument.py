@@ -25,7 +25,7 @@ cal_energy(5, 5)
 cal_energy(3)
 '''
 
-'''
+
 def addition(*a):
     print(a)
    
@@ -34,7 +34,7 @@ addition(1,4)
 addition(1,5,6)
 addition(1,5,7,4)
 
-'''
+
 '''
 #variable lent argument 
 b =(3,4,5,6,7)
