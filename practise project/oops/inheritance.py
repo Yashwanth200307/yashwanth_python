@@ -106,12 +106,13 @@ class GrandFather:
     def gf_method(self):
         print("This is Grand father method")
         
-class Mother(GrandFather):
-    def __init__(self, name, age ):
-        # print(f"object created with name:{name} and age:{age}") 
-        super().__init__(name)  
+class Mother(GrandFather): 
+    
+    def __init__(self, name, age):
+        # print(f"Object is created with name: {name} and age: {age}")
+        super().__init__(name)
         print(f"Age of {name} is {age}")
-  
+    
     def m_method(self):
         print("This is Mother method")
         
