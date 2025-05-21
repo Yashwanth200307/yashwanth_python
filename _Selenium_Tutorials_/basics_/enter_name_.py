@@ -74,9 +74,9 @@ date_picker.send_keys("05/20/2025")
 # name_txt_bx = driver.find_element(By.ID, 'txtDate')
 # name_txt_bx.send_keys("21/07/2025")
 
-#--- date picker 2 ---
-name_txt_bx = driver.find_element(By.ID, 'txtDate')
-driver.execute_script("arguments[0].value = '21/07/2025';", name_txt_bx)
+# #--- date picker 2 ---
+# name_txt_bx = driver.find_element(By.ID, 'txtDate')
+# driver.execute_script("arguments[0].value = '21/07/2025';", name_txt_bx)
 
 
 #----date picker 3---
@@ -91,9 +91,9 @@ submit_btn = driver.find_element(By.XPATH, "//button[contains(text(), 'Submit')]
 submit_btn.click()
 
 
-''' Upload single file'''
+#--- Upload single file ---
 single_file_input = driver.find_element(By.ID, 'singleFileInput')
-single_file_input.send_keys('C:\\Users\\User1\\OneDrive\\Desktop\\example.txt')
+single_file_input.send_keys('C:/Users/User1/OneDrive/Desktop/example.txt')
 
 single_upload_btn = driver.find_element(By.XPATH, "//*[@id=\"singleFileForm\"]/button")
 single_upload_btn.click()
@@ -101,8 +101,9 @@ single_upload_btn.click()
 
 #---- multiple file upload---
 multiple_file_input = driver.find_element(By.ID, 'multipleFilesInput')
-multiple_file_input.send_keys('C:\\Users\\User1\\OneDrive\\Desktop\\good mornings folks.txt')
-multiple_file_input.send_keys('C:\\Users\\User1\\OneDrive\\Documents\\new 1.txt')
+multiple_file_input.send_keys('C:/Users/User1/OneDrive/Desktop/good mornings folks.txt')
+multiple_file_input.send_keys('C:/Users/User1/OneDrive/Documents/new 1.txt')
 
 multiple_upload_btn = driver.find_element(By.XPATH, "//*[@id=\"multipleFilesForm\"]/button")
 multiple_upload_btn.click()
+
