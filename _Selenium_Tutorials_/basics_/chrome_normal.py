@@ -17,7 +17,7 @@ driver = webdriver.Chrome(options)
 driver.get('https://www.youtube.com/')
 
 
-name_txt_bx = driver.find_element(By.ID, 'ytSearchboxComponentInput yt-searchbox-input title')
+name_txt_bx = driver.find_element(By.ID, "ytSearchboxComponentInput yt-searchbox-input title")
 name_txt_bx.send_keys("gta vice city ")
 
 
