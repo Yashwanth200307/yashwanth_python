@@ -129,13 +129,13 @@ multiple_upload_btn.click()
 productTable_chk_box = driver.find_element(By.XPATH, '//*[@id="productTable"]/tbody/tr[1]/td[4]/input')
 productTable_chk_box.click()
 
-# pagination_btn = driver.find_element(By.XPATH, '//*[@id="pagination"]/li[2]/a')
-# pagination_btn.click()
+pagination_btn = driver.find_element(By.XPATH, '//*[@id="pagination"]/li[2]/a')
+pagination_btn.click()
 
 productTable_chk_box = driver.find_element(By.XPATH, '//*[@id="productTable"]/tbody/tr[4]/td[4]/input')
 productTable_chk_box.click()
 
-productTable_chk_box = driver.find_element(By.XPATH, '//*[@id="productTable"]/tbody/tr[3]/td[4]/input')
+productTable_chk_box = driver.find_element(By.XPATH, '//*[@id="productTable"]/tbody/tr[4]/td[4]/input')
 productTable_chk_box.click()
 
 
@@ -165,8 +165,10 @@ section1_btn.click()
 start_btn = driver.find_element(By.XPATH, '//*[@id="HTML5"]/div[1]/button')
 start_btn.click()
 
-# stop_btn = driver.find_element(By.XPATH, '//*[@id="HTML5"]/div[1]/button')
-# stop_btn.click()
+
+'''stop btn'''
+stop_btn = driver.find_element(By.XPATH, '//*[@id="HTML5"]/div[1]/button')
+stop_btn.click()
 
 
 '''simple alert btn'''
@@ -175,7 +177,7 @@ simple_alert_btn = driver.find_element(By.XPATH, '//*[@id="alertBtn"]')
 simple_alert_btn.click()
 
 # switching to simple alert
-simple_alert = driver._switch_to.alert
+simple_alert = driver.switch_to.alert
 
 simple_alert_text = simple_alert.text
 print(simple_alert_text)
@@ -192,10 +194,11 @@ confirmation_alert_btn.click()
 
 
 # switching to simple alert
-confirmation_alert = driver._switch_to.alert
+confirmation_alert = driver.switch_to.alert
 
 confirmation_alert_text = confirmation_alert.text
 print(confirmation_alert_text)
+
 
 time.sleep(4)
 
@@ -218,5 +221,33 @@ prompt_alert.send_keys("Yashwanth")
 
 prompt_alert.accept()
 # confirmation_alert.dismiss()
+
+
+'''new tab opening btn'''
+new_tab_alert_btn = driver.find_element(By.XPATH, '//*[@id="HTML4"]/div[1]/button')
+new_tab_alert_btn.click()
+
+
+time.sleep(10)
+
+window_handles_list = driver.window_handles
+
+driver.switch_to.window(window_handles_list[0])
+
+current_page_title = driver.title
+print(current_page_title)
+
+# double_click_tab = driver.find_element(By.XPATH, '//*[@id="HTML10"]/div[1]/button')
+# double_click_tab.click()
+# double_click_tab.click()
+
+'''combo block'''
+
+combo_block_tab = driver.find_element(By.ID,'comboBox')
+combo_block_tab.click()
+
+select_item_tab = driver.find_element(By.XPATH,'//*[@id="dropdown"]/div[4]')
+select_item_tab.click()
+
 
 

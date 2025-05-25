@@ -28,7 +28,7 @@ wiki_search_btn.click()
 
 time.sleep(20)
 
-wiki_search_result = driver.find_element(By.XPATH, '(//*[@id="wikipedia-search-result-link"]/a)[1]')
+wiki_search_result = driver.find_element(By.XPATH, '//*[@id="wikipedia-search-result-link"]/a)[1]')
 wiki_search_result.click()
 
 '''
@@ -36,8 +36,10 @@ current_page_title = driver.title
 print(current_page_title)
 
 current_window = driver.current_window_handle
+
+
 print(current_window)
-# driver.switch_to.new_window('tab') # It opens new tab/ window
+driver.switch_to.new_window('tab') # It opens new tab/ window
 '''
 window_handles_list = driver.window_handles
 # print(window_handles_list)
