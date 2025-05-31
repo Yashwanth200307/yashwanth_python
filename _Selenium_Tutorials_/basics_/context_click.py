@@ -31,6 +31,14 @@ driver.get('https://demo.guru99.com/test/simple_context_menu.html')
 right_click_me_btn = driver.find_element(By.XPATH, '//*[@id="authentication"]/span')
 actions.context_click(right_click_me_btn).perform()
 
+time.sleep(4)
+
+left_click_on_body = driver.find_element(By.XPATH, '//*[@id="authentication"]')
+left_click_on_body.click()
+
+
+time.sleep(4)
+
 '''double click '''
 double_click_me_to_see = driver.find_element(By.XPATH,'//*[@id="authentication"]/button')
 

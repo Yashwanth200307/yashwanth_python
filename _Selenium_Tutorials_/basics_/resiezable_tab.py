@@ -3,6 +3,7 @@ Created on 25-May-2025
 
 @author: User1
 '''
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time 
@@ -30,7 +31,5 @@ driver.get('https://demo.automationtesting.in/Resizable.html')
 
 '''re siez'''
 
-source = driver.find_element(By.XPATH, '//*[@id="resizable"]/div[3]')
-actions.drag_and_drop_by_offset(source, 250, 145).perform()
-
-
+resize_box = driver.find_element(By.XPATH,'//*[@id="resizable"]/div[3]')
+actions.drag_and_drop_by_offset(resize_box, 200, 150).perform()

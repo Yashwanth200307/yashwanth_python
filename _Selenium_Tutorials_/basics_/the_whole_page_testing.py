@@ -126,6 +126,8 @@ multiple_upload_btn.click()
 # wiki_search_result.click()
 
 
+'''product table '''
+
 productTable_chk_box = driver.find_element(By.XPATH, '//*[@id="productTable"]/tbody/tr[1]/td[4]/input')
 productTable_chk_box.click()
 
@@ -194,11 +196,10 @@ confirmation_alert_btn.click()
 
 
 # switching to simple alert
-confirmation_alert = driver.switch_to.alert
+confirmation_alert = driver._switch_to.alert
 
 confirmation_alert_text = confirmation_alert.text
 print(confirmation_alert_text)
-
 
 time.sleep(4)
 
@@ -220,7 +221,6 @@ prompt_alert.send_keys("Yashwanth")
 
 
 prompt_alert.accept()
-# confirmation_alert.dismiss()
 
 
 '''new tab opening btn'''

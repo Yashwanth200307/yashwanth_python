@@ -6,6 +6,10 @@ Created on 24-May-2025
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time 
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common import action_chains
+from time import sleep
+
 
 
 '''1. Launching the chrome browser'''
@@ -19,15 +23,27 @@ driver.implicitly_wait(10)
 '''2. Navigating to practice site'''
 driver.get('https://testautomationpractice.blogspot.com/')
 
+'''ActionsChains class and objects'''
 
-lenovo_search_tab = driver.find_element(By.ID, 'lenovo')
-lenovo_search_tab.click()
+actions = ActionChains(driver)
 
-time.sleep(10)
+'''drag and drop'''
+actions.scroll_by_amount(0, 550).perform()
+source = driver.find_element(By.XPATH, '//*[@id="draggable"]')
 
-window_handles_list = driver.window_handles
+target = driver.find_element(By.XPATH, '//*[@id="droppable"]')
 
-driver.switch_to.window(window_handles_list[0])
+actions.drag_and_drop(source,target).perform()
 
-current_page_title = driver.title
-print(current_page_title)
+time.sleep(2)
+
+
+'''drag and drop reverse'''
+
+# Locate source and target
+source = driver.find_element(By.ID, "draggable")
+target = driver.find_element(By.ID, "droppable")
+
+
+# (reverse)
+actions.drag_and_drop_by_offset(source, -140, 0).perform()

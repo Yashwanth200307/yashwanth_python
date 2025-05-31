@@ -18,27 +18,9 @@ driver.get('https://demo.automationtesting.in/Frames.html')
 
 '''iframe switching'''
 
-# driver.switch_to.frame('SingleFrame') #you can check with name , id and webelements
-#
-#
-#
-# '''enter anythihng'''
-# input_txt_bx = driver.find_element(By.XPATH, '/html/body/section/div/div/div/input')
-# input_txt_bx.send_keys("Raju Bhai ")
+driver.switch_to.frame('SingleFrame') #you can check with name , id and webelements
 
-driver.switch_to.frame('/html/body/section/div[1]/div/div/div/div[1]/div/ul/li[2]/a')
-
-driver.switch_to.parent_frame()
-
-driver.switch_to.frame(13)
-print(driver.switch_to.frame)
-
-
-
+'''enter anythihng'''
 input_txt_bx = driver.find_element(By.XPATH, '/html/body/section/div/div/div/input')
 input_txt_bx.send_keys("Raju Bhai ")
-
-
-
-
 
