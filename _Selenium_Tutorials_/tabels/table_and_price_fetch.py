@@ -10,8 +10,18 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common import action_chains
 from selenium.webdriver.common.keys import Keys
 
+'''chrome options'''
+options = webdriver.ChromeOptions()
+options.add_argument("start-maximized")
+options.add_experimental_option("detach", True)
+driver = webdriver.Chrome(options)
+# driver = Chrome()
+driver.implicitly_wait(10)
 
-driver = webdriver.Chrome()
+
+
+'''navigating to chrome'''
+
 driver.get("https://testautomationpractice.blogspot.com/?m=1")
 
 

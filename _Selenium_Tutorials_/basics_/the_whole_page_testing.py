@@ -3,9 +3,12 @@ Created on 21-May-2025
 
 @author: User1
 '''
-from selenium import webdriver 
-from selenium.webdriver.common.by import By 
-import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time 
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common import action_chains
+from selenium.webdriver.common.keys import Keys
 
 
 
@@ -20,6 +23,10 @@ driver.implicitly_wait(10)
 
 '''2 navigate the practice page'''
 driver.get('https://testautomationpractice.blogspot.com/')
+
+'''ActionsChains class and objects'''
+
+actions = ActionChains(driver)
 
 ''' 3 enter name , phone, email '''
 name_txt_bx = driver.find_element(By.ID, 'name')
@@ -237,9 +244,26 @@ driver.switch_to.window(window_handles_list[0])
 current_page_title = driver.title
 print(current_page_title)
 
-# double_click_tab = driver.find_element(By.XPATH, '//*[@id="HTML10"]/div[1]/button')
-# double_click_tab.click()
-# double_click_tab.click()
+'''double click'''
+
+double_click = driver.find_element(By.XPATH,'//*[@id="HTML10"]/div[1]/button')
+
+actions.double_click(double_click).perform()
+
+
+'''slider drag right'''
+
+slider_right = driver.find_element(By.XPATH,'//*[@id="slider-range"]/span[2]')
+
+
+actions.drag_and_drop_by_offset(slider_right, 60, 0).perform()
+
+'''slider drag left'''
+slider_left = driver.find_element(By.XPATH,'//*[@id="slider-range"]/span[1]')
+
+
+actions.drag_and_drop_by_offset(slider_left, -15, 0).perform()
+
 
 '''combo block'''
 

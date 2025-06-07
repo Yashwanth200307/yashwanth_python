@@ -47,5 +47,3 @@ productTable_chk_box.click()
 
 time.sleep(10)
 
-
-
