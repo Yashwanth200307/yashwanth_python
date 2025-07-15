@@ -6,86 +6,75 @@ Created on 07-Jun-2025
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time 
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common import action_chains
-from selenium.webdriver.common.keys import Keys
+import time
 
-class OrangeHRMLoginTest_(unittest.TestCase):
+class OrangeHRMLoginTest(unittest.TestCase):
 
-
-    def test_navigation_to_login_page(self):
-        # '''1. Launching the chrome browser'''     (Methods)
+    def setUp(self):
+        # 1. Launching the Chrome browser
         options = webdriver.ChromeOptions()
         options.add_argument("start-maximized")
         options.add_experimental_option("detach", True)
-        driver = webdriver.Chrome(options)
-        driver.implicitly_wait(10)
-        
-        '''2 navigate the page'''
+        self.driver = webdriver.Chrome(options=options)
+        self.driver.implicitly_wait(10)
+
+    def tearDown(self):
+        # Close the browser after each test
+        self.driver.quit()
+
+    def test_valid_login_navigation_and_dashboard(self):
+        driver = self.driver
+
+        # 2. Navigate to login page
         driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-        
-        
-        '''3 validate whether the navigation is successful '''
-        expected_url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-        url_portionm= "auth/login"
-        
-        actual_url = driver.current_url  
-        
-        actual_url = driver.current_url        
-        
-        # self.assertEqual(actual_url, expected_url, "Navigstion is failed")
-        
-        ''' enter user name '''
-        username_bx = driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input')
-        username_bx.send_keys("Admin")
-         
-         
-        '''enter the password'''
-        
-        password_bx = driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input')
-        password_bx.send_keys("admin123")
-        
-        ''' click on the login btn'''
-        
-        login_btn = driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button')
-        login_btn.click()
-        
-        
-    def test_navigation_to_login_page(self):
-        # '''1. Launching the chrome browser'''     (Methods)
-        options = webdriver.ChromeOptions()
-        options.add_argument("start-maximized")
-        options.add_experimental_option("detach", True)
-        driver = webdriver.Chrome(options)
-        driver.implicitly_wait(10)
-        
-        
-        '''2 navigate the page'''
-        driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-        
-        
-        '''3 validate whether the navigation is successful '''
-        expected_url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-        url_portionm= "auth/login"
-        
-        actual_url = driver.current_url  
-        
-        
-        '''login failed'''
-        expected_url_ = " dashboard/index"
+
+        # 3. Validate current URL contains "auth/login"
+        expected_login_url = "auth/login"
         actual_url = driver.current_url
-        
+        self.assertIn(expected_login_url, actual_url, "Login page navigation failed!")
 
-        
-        
-        
-        self.assertIn(expected_url, actual_url, "Navigstion is failed")
+        # 4. Enter username
+        username_input = driver.find_element(By.NAME, "username")
+        username_input.send_keys("Admin")
 
+        # 5. Enter password
+        password_input = driver.find_element(By.NAME, "password")
+        password_input.send_keys("admin123")
+
+        # 6. Click Login
+        login_button = driver.find_element(By.XPATH, '//button[@type="submit"]')
+        login_button.click()
+
+        # 7. Wait for redirection (basic wait; for better use WebDriverWait)
+        time.sleep(3)
+
+        # 8. Validate successful login by checking URL or element on Dashboard
+        expected_dashboard_url = "dashboard/index"
+        actual_url = driver.current_url
+        self.assertIn(expected_dashboard_url, actual_url, "Dashboard navigation failed after login!")
+
+    def test_invalid_login_should_fail(self):
+        driver = self.driver
+
+        # Navigate to login page
+        driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+
+        # Enter invalid credentials
+        username_input = driver.find_element(By.NAME, "username")
+        username_input.send_keys("InvalidUser")
+        password_input = driver.find_element(By.NAME, "password")
+        password_input.send_keys("InvalidPass")
+
+        # Click Login
+        login_button = driver.find_element(By.XPATH, '//button[@type="submit"]')
+        login_button.click()
+
+        # Wait for error message to appear
+        time.sleep(2)
         
-
-
+        # Validate error is displayed
+        error_message = driver.find_element(By.XPATH, "//p[contains(@class, 'oxd-alert-content-text')]")
+        self.assertTrue(error_message.is_displayed(), "Error message not shown for invalid login!")
 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

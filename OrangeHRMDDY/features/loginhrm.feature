@@ -16,35 +16,44 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
-Feature: Oange HRM Login Feature
+@OrangeHRMLoginFeature
+Feature: Orange HRM Login feature
 
-  @tag1
-  Scenario: Validate navigate to OrangeHRM Login page
-    Given Chrome browser is launched
-    When User navugates to OrangeHRM Login page
+	Background: List of background steps for Login feature
+		Given Chrome browser is launched
+    When User navigates to OrangeHRM Login page
+    
+    
+  @LOG_TC_001
+  Scenario: Validate navigation to OrangeHRM Login page
+  
     Then User should able to see auth/login in current page url
-    And check more outcomes
-    
-    
-  Scenario: Validate navigate to OrangeHRM Login page
-    Given Chrome browser is launched
-    When User navugates to OrangeHRM Login page
-    And User enters username
-    And User enters Password
-    And user click on login button
-    Then user should able to see dashboard/index in current page url 
-    
-  Scenario:    
-    
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
+  @LOG_TC_002
+  Scenario: Validate login to OrangeHRM site
+    When User enters username
+    And User enters password
+    And User clicks on login button
+    Then User should able to see dashboard/index in current page url
+
+  @LOG_TC_003
+  Scenario: OrangeHRM Login with  parameters
+    When User enters username "Admin"
+    And User enters password "admin123"
+    And User clicks on login button
+    Then User should able to see "dashboard/index" in current page url
+    
+    
+  @LOG_TC_004
+  Scenario Outline: OrangeHRM Login in DDT
+    When User enters username "<username>"
+    And User enters password "<password>"
+    And User clicks on login button
+    Then User should able to see "<expected_url_member>" in current page url
 
     Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+      | username | password  | expected_url_member |
+      | Admin    | admin123  | dashboard/index     |
+      | Admins   | admin123  | auth/login          |
+      | Admin    | admin234  | auth/login          |
+      | Admins   | admin1234 | auth/login          |
